@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class SendEmailVerificationJob implements ShouldQueue
 {
@@ -30,6 +31,7 @@ class SendEmailVerificationJob implements ShouldQueue
      */
     public function handle(): void
     {
+        Log::info('notifiableeeee: ');
         $notifiable = new GenericNotifiable($this->email);
 
         $notifiable->notify(new EmailVerificationNotification($this->url));

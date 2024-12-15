@@ -12,7 +12,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::get('/teste', function() {
 
-//     UserRegisteredJob::dispatch('milena.devweb@gmail.com')->onQueue('queue_notification');
+//     // UserRegisteredJob::dispatch('milena.devweb@gmail.com')->onQueue('queue_notification');
+//     SendEmailVerificationJob::dispatch('milena.devweb@gmail.com', 'localhost:8383/verify/123')->onQueue('queue_notification');
 
 //     return response()->json(['status' => 'sucess', 'message' => 'Send email.']);
 // });

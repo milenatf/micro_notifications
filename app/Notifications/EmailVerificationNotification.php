@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Log;
 
 class EmailVerificationNotification extends Notification
 {
@@ -36,6 +37,7 @@ class EmailVerificationNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
+        // Log::info('This url: ' . $this->url);
         return (new MailMessage)
                     ->line('Bem vindo ao nosso sistema.')
                     ->action('Verificar email', url($this->url))
