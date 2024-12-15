@@ -8,12 +8,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/teste', function() {
+// Route::get('/teste', function() {
 
-    UserRegisteredJob::dispatch('milena.devweb@gmail.com')->onQueue('queue_notification');
+//     UserRegisteredJob::dispatch('milena.devweb@gmail.com')->onQueue('queue_notification');
 
-    return response()->json(['status' => 'sucess', 'message' => 'Send email.']);
-});
+//     return response()->json(['status' => 'sucess', 'message' => 'Send email.']);
+// });
 
 Route::get('/', function() {
     return response()->json(['status' => 'sucess', 'message' => 'Micro notification is runing.']);
