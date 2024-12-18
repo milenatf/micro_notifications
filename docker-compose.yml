@@ -14,6 +14,7 @@ services:
       - micro_notification_queue
     networks:
       - micro_notification_network
+      - shared_network
 
   # nginx
   micro_notification_nginx:
@@ -34,12 +35,15 @@ services:
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    command: "php artisan queue:work"
+    # command: "php artisan queue:work"
     volumes:
       - ./:/var/www
     networks:
       - micro_notification_network
+      - shared_network
 
 networks:
   micro_notification_network:
     driver: bridge
+  shared_network:
+    external: true
